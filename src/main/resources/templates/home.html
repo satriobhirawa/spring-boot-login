@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Home</title>
+</head>
+<body>
+    <div style="text-align:center">
+        <h2 th:inline="text">Welcome to the home page [[${#httpServletRequest.remoteUser}]]! If you see this you have successfully logged in!</h2>
+
+        <form th:action="@{/logout}" method="post"><input type="submit" value="Logout" /></form>
+    </div>
+</body>
+</html>

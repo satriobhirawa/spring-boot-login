@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Set Password Page</title>
+
+  <style>
+      .success {
+          font-style: italic;
+          color: green;
+          padding-bottom: 8px;
+      }
+
+      .failure {
+          font-style: italic;
+          color: red;
+          padding-bottom: 8px;
+      }
+    
+  </style>
+
+</head>
+<body>
+  <div>
+      <div>
+         <h2>Set Password</h2> 
+          <div th:if="${successMessage}" class="success" role="alert" th:text="${successMessage}"></div>
+          <div th:if="${errorMessage}" class="failure" role="alert" th:text="${errorMessage}"></div>
+          <div th:if="${invalidToken}" class="failure" role="alert" th:text="${invalidToken}"></div>
+
+          <form th_if="!${invalidToken}" class="m-t" id="passwordForm" role="form" action="#" th:object="${setPassword}" th:action="@{/confirm}" method="post">
+              <input type="hidden" name="token" th:value="${confirmationToken}">
+
+              <div>
+                  <input type="password" name="password" id="password" class="form-control" placeholder="Password" required>
+              </div>
+              <br/>
+              <button type="submit">Save</button>
+          </form>
+      </div>
+  </div>
+</body>
+</html>
